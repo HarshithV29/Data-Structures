@@ -1,0 +1,18 @@
+CODE:-
+def selectionsort(arr,n):
+  for i in range(0,n):
+    minindex=i
+    for j in range(i+1,n):
+      if arr[j]<arr[minindex]:
+        minindex=j
+    arr[i],arr[minindex] = arr[minindex], arr[i]
+  return arr
+
+arr=[9,5,7,2,1,4]
+n=len(arr)
+result=selectionsort(arr,n)
+print('The sorted array is: ', result)
+
+
+OUTPUT:-
+The sorted array is:  [1, 2, 4, 5, 7, 9]
