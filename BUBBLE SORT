@@ -1,0 +1,20 @@
+CODE:-
+def bubblesort(list1,n):
+  for i in range(0,n-1):
+    for j in range(n-1):
+      if list1[j] > list1[j+1]:
+        list1[j], list1[j+1] = list1[j+1], list1[j]
+  return list1
+
+list1=[8, 13, -1, 5, 2, 7]
+n=len(list1)
+result= bubblesort(list1,n)
+print("The sorted list is: ")
+for i in range(len(list1)):
+  print(list1[i],end=" ")
+  
+  
+  
+  OUTPUT:-
+  The sorted list is: 
+-1 2 5 7 8 13 
