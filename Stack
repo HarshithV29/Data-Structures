@@ -1,0 +1,119 @@
+class Stackarray:
+  def __init__(self):
+    self.stack=[]
+    self.maxsize=5
+    self.top=-1
+  def push(self,ele):
+    self.top=self.top+1
+    self.stack.append(ele)
+  def pop(self):
+    self.top=self.top-1
+    ele=self.stack[-1]
+    del(self.stack[-1])
+    return ele
+  def isempty(self):
+    if(self.top==-1):
+      return 1
+    else:
+      return 0
+  def peek(self):
+    return self.stack[-1]
+  def isfull(self):
+    if(self.top==self.maxsize-1):
+      return 1
+    else:
+      return 0
+  def display(self):
+    print(self.stack[::-1])
+s =Stackarray()
+while(True):
+  ch=int(input("1.push\n 2.pop\n 3.display\n 4.peek\n 5.Number of elements\n 6.Exit\n Enter Your Choice : "))
+  if(ch==1):
+    if(s.isfull()):
+      print("Stack Overflow")
+    else:
+      item=int(input("Enter element to push in stack\n"))
+      s.push(item)
+  elif ch==2:
+    if(s.isempty()):
+      print("stack underflow")
+    else:
+      print(s.pop())
+  elif ch==3:
+    if(s.isempty()):
+      print("Stack Underflow")
+    else:
+      print(s.display())
+  elif ch==4:
+    print(s.peek())
+  elif ch==5:
+    print("number of element on stack",s.top+1)
+  elif ch==6:
+    exit()
+
+
+
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 1
+Enter element to push in stack
+1
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 1
+Enter element to push in stack
+2
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 2
+2
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 4
+1
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 5
+number of element on stack 1
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 3
+[1]
+None
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
+ Enter Your Choice : 7
+1.push
+ 2.pop
+ 3.display
+ 4.peek
+ 5.Number of elements
+ 6.Exit
