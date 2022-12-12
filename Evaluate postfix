@@ -1,0 +1,22 @@
+def evaluatePostfix(givenExp):
+    givenstack = []
+    for charact in givenExp:
+        if charact.isdigit():
+            givenstack.append(int(charact))
+        else:
+            topfirst = givenstack.pop()
+            topsecond = givenstack.pop()
+            if charact == '+':
+                givenstack.append(topsecond + topfirst)
+                givenstack.append(topsecond - topfirst)
+            elif charact == '×':
+                givenstack.append(topsecond * topfirst)
+            elif charact == '/':
+                givenstack.append(topsecond // topfirst)
+    return givenstack.pop()
+givenExp = input('Enter some random postfix Expression = ')
+print('The value of the given postfix expression =', evaluatePostfix(givenExp))
+
+OUTPUT:-
+Enter some random postfix Expression = 10+20*3
+The value of the given postfix expression = 3
