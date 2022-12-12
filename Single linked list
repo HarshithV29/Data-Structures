@@ -1,0 +1,193 @@
+class Node:
+    def __init__(self, data):
+       self.data = data
+       self.link = None
+ 
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+ 
+    def create(self, data):
+        if self.tail is None:
+            self.head = Node(data)
+            self.tail = self.head
+        else:
+            self.tail.link = Node(data)
+            self.tail = self.tail.link
+ 
+    def display(self):
+        cur = self.head
+        if cur==None:
+              print("Linked list is empty")
+        else:
+            while cur is not None:
+               print(cur.data, end = '-> ')
+               cur= cur.link
+
+    def insert_at_begin(self,data):
+        x=Node(data)
+        x.link=self.head
+        self.head=x
+        
+    def insert_at_end(self,data):
+        x=Node(data)
+        self.tail.link=x
+        self.tail=x
+        
+    def insert_at_pos(self,pos,data):
+        x=Node(data)
+        i=1
+        cur=self.head
+        while i<pos:
+            prev=cur
+            cur=cur.link
+            i+=1
+        prev.link=x
+        x.link=cur  
+    
+    def delete_at_begin(self):
+        cur=self.head
+        self.head=self.head.link
+        cur.link=None
+        print("deleted data", cur.data)
+    
+    def delete_at_end(self):
+        cur=self.head
+        while cur.link!=self.tail:
+            cur=cur.link
+        cur.link=None
+        print("deleted data", self.tail.data)
+        self.tail=cur
+    
+    def delete_at_pos(self,pos):
+        cur=self.head
+        i=1
+        while i<pos:
+            prev=cur
+            cur=cur.link
+            i+=1
+        prev.link=cur.link
+        print("deleted data",cur.data)
+    
+    def search(self,ele):
+        cur=self.head
+        flag=0
+        while cur is not None:
+            if(ele==cur.data):
+                flag=1
+                break
+            cur=cur.link
+        if flag==1:
+            print("element found")
+        else:
+            print("element not found")
+    def count(self):
+        cur=self.head
+        c=0
+        while cur is not None:
+            c+=1
+            cur=cur.link
+        print(c)
+      
+while True:
+    print("\n1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display")
+    print(" 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit \n")
+    ch=int(input('enter your choice'))
+    if ch==1:
+        # Creation of linked list
+        sll = LinkedList()
+        n = int(input('How many elements would you like to add? '))
+        for i in range(n):
+            data = int(input('Enter data item: '))
+            sll.create(data)
+    elif ch==2:
+        # insert at begining
+        x=int(input('Enter an element to insert at begin '))
+        sll.insert_at_begin(x)
+    elif ch==3:
+        #insert at end
+        x=int(input('Enter an element to insert at end '))
+        sll.insert_at_end(x)
+    elif ch==4:
+        #insert at position
+        pos=int(input('Enter position of insertion'))
+        x=int(input('Enter an element to insert at position '))
+        sll.insert_at_pos(pos,x)
+    elif ch==5:
+        #display
+        print('The linked list: ', end = '')
+        sll.display()
+    elif ch==6:
+        sll.delete_at_begin()
+    elif ch==7:
+        sll.delete_at_end()
+    elif ch==8:
+        pos=int(input('Enter position of deletion'))
+        sll.delete_at_pos(pos)
+    elif ch==9:
+        ele=int(input('Enter element to be searched'))
+        sll.search(ele)
+    elif ch==10:
+        sll.count()
+    elif ch==11:
+        exit()
+OUTPUT:-
+
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+The linked list: 4-> 9-> 1-> 2-> 3-> 5-> 
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+deleted data 4
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+deleted data 5
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+deleted data 1
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+The linked list: 9-> 2-> 3-> 
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+element found
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+3
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
+
+1.Create 2.Insert at begin 3.Insert at end 4.Insert at postion 5.Display
+ 6.delete at begin 7.delete at end 8.delete at pos 9. search 10. count 11.Exit 
+
