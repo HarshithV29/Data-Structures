@@ -1,0 +1,156 @@
+class BinaryTreeNode:
+    def _init_(self, data):
+        self.data = data
+        self.leftChild = None
+        self.rightChild = None
+
+def insert(root, newValue):
+    if root is None:
+        root = BinaryTreeNode(newValue)
+        return root
+    if newValue < root.data:
+        root.leftChild = insert(root.leftChild, newValue)
+    else:
+        root.rightChild = insert(root.rightChild, newValue)
+    return root
+
+root = insert(None, 50)
+insert(root, 20)
+insert(root, 53)
+insert(root, 11)
+insert(root, 22)
+insert(root, 52)
+insert(root, 78)
+node1 = root
+node2 = node1.leftChild
+node3 = node1.rightChild
+node4 = node2.leftChild
+node5 = node2.rightChild
+node6 = node3.leftChild
+node7 = node3.rightChild
+print("Root Node is:")
+print(node1.data)
+
+print("left child of the node is:")
+print(node1.leftChild.data)
+
+print("right child of the node is:")
+print(node1.rightChild.data)
+
+print("Node is:")
+print(node2.data)
+
+print("left child of the node is:")
+print(node2.leftChild.data)
+
+print("right child of the node is:")
+print(node2.rightChild.data)
+
+print("Node is:")
+print(node3.data)
+
+print("left child of the node is:")
+print(node3.leftChild.data)
+
+print("right child of the node is:")
+print(node3.rightChild.data)
+
+print("Node is:")
+print(node4.data)
+
+print("left child of the node is:")
+print(node4.leftChild)
+
+print("right child of the node is:")
+print(node4.rightChild)
+
+print("Node is:")
+print(node5.data)
+
+print("left child of the node is:")
+print(node5.leftChild)
+
+print("right child of the node is:")
+print(node5.rightChild)
+
+print("Node is:")
+print(node6.data)
+
+print("left child of the node is:")
+print(node6.leftChild)
+
+print("right child of the node is:")
+print(node6.rightChild)
+
+print("Node is:")
+print(node7.data)
+
+print("left child of the node is:")
+print(node7.leftChild)
+
+print("right child of the node is:")
+print(node7.rightChild)
+def search(root, value):
+    if root is None:
+        return False
+    elif root.data == value:
+        return True
+    elif root.data > value:
+        return search(root.leftChild, value)
+    else:
+        return search(root.rightChild, value)
+root = insert(None, 50)
+insert(root, 20)
+insert(root, 53)
+insert(root, 11)
+insert(root, 22)
+insert(root, 52)
+insert(root, 78)
+print("53 is present in the binary tree:", search(root, 53))
+print("100 is present in the binary tree:", search(root, 100))
+
+OUTPUT:-
+Root Node is:
+50
+left child of the node is:
+20
+right child of the node is:
+53
+Node is:
+20
+left child of the node is:
+11
+right child of the node is:
+22
+Node is:
+53
+left child of the node is:
+52
+right child of the node is:
+78
+Node is:
+11
+left child of the node is:
+None
+right child of the node is:
+None
+Node is:
+22
+left child of the node is:
+None
+right child of the node is:
+None
+Node is:
+52
+left child of the node is:
+None
+right child of the node is:
+None
+Node is:
+78
+left child of the node is:
+None
+right child of the node is:
+None
+53 is present in the binary tree: True
+100 is present in the binary tree: False
