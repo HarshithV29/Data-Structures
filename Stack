@@ -52,7 +52,7 @@ while(True):
     exit()
 
 
-
+OUTPUT:
 1.push
  2.pop
  3.display
